@@ -35,7 +35,7 @@ jobs:
     deploy:
       runs-on: ubuntu-latest
       needs: build
-      environent: dev
+      environment: dev
       permissions:
           id-token: write # Required for OIDC
       steps:
