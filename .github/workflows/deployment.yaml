@@ -60,5 +60,5 @@ jobs:
           uses: Azure/functions-action@v1
           id: deploy-to-function-app
           with:
-            app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+            app-name: ${{ vars.AZURE_FUNCTIONAPP_NAME }}
             package: app
