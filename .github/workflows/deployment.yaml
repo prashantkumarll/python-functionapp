@@ -86,6 +86,6 @@ jobs:
           with:
             inlineScript: |
               az functionapp restart \
-                --name ${{ env.AZURE_FUNCTIONAPP_NAME }} \
-                --resource-group ${{ env.AZURE_RESOURCE_GROUP_NAME }}
+                --name ${{ vars.AZURE_FUNCTIONAPP_NAME }} \
+                --resource-group ${{ vars.AZURE_RESOURCE_GROUP_NAME }}
 
