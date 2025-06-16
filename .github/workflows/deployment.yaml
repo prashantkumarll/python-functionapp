@@ -62,3 +62,22 @@ jobs:
           with:
             app-name: ${{ vars.AZURE_FUNCTIONAPP_NAME }}
             package: app
+
+        - name: Set App Settings (Best Practice)
+          uses: azure/CLI@v1
+          with:
+            inlineScript: |
+              az functionapp config appsettings set \
+                --name ${{ vars.AZURE_FUNCTIONAPP_NAME }} \
+                --resource-group ${{ vars.AZURE_RESOURCE_GROUP_NAME }} \
+                --settings \
+                  AzureWebJobsStorage__accountName=${{ vars.AzureWebJobsStorage__accountName }} \
+                  AzureWebJobsStorage__queueServiceUri=${{ vars.AzureWebJobsStorage__queueServiceUri }} \
+                  AzureWebJobsStorage__credential=${{ vars.AzureWebJobsStorage__credential }} \
+                  AzureWebJobsStorage__blobServiceUri=${{ vars.AzureWebJobsStorage__blobServiceUri }} \
+                  AzureWebJobsStorage__tableServiceUri=${{ vars.AzureWebJobsStorage__tableServiceUri }} \
+                  QueueStorage__blobServiceUri=${{ vars.QueueStorage__blobServiceUri }} \
+                  QueueStorage__credential=${{ vars.QueueStorage__credential }} \
+                  QueueStorage__queueServiceUri=${{ vars.QueueStorage__queueServiceUri }} \
+                  QueueStorage__tableServiceUri=${{ vars.QueueStorage__tableServiceUri }}
+
