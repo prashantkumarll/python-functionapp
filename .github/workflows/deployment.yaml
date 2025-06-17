@@ -1,3 +1,5 @@
+name: Deploy FunctionApp
+
 on:
   push:
     branches:
