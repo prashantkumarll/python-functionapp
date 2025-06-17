@@ -2,6 +2,7 @@ on:
   push:
     branches:
     - main
+  workflow_publish:
   
 
 # Deploy to an app on the Flex Consumption plan using OIDC authentication
