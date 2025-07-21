@@ -1,0 +1,51 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      only_config_changed: ${{ steps.check.outputs.only_config_changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Ensures previous commit is available for comparison
+
+      - name: Determine changed files
+        id: check
+        run: |
+          # Get list of changed files between last commit and current
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
+
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          ONLY_CONFIG_CHANGED=true
+
+          for FILE in $CHANGED_FILES; do
+            if [[ "$FILE" != config/** ]]; then
+              ONLY_CONFIG_CHANGED=false
+              break
+            fi
+          done
+
+          echo "only_config_changed=$ONLY_CONFIG_CHANGED" >> $GITHUB_OUTPUT
+
+  build:
+    needs: check-changes
+    if: needs.check-changes.outputs.only_config_changed == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building the project..."
+
+  deploy:
+    needs: build
+    if: needs.check-changes.outputs.only_config_changed == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying the project..."

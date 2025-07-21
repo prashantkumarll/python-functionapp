@@ -36,12 +36,12 @@ def send_email(user, pwd, recipient, subject, body):
         print "failed to send mail"
 
 
-AzureWebJobsStorage__accountName       False          testfuncpacificappn9585
-AzureWebJobsStorage__blobServiceUri    False          https://testfuncpacificappn9585.blob.core.windows.net
-AzureWebJobsStorage__credential        False          managedidentity
-AzureWebJobsStorage__queueServiceUri   False          https://testfuncpacificappn9585.queue.core.windows.net
-AzureWebJobsStorage__tableServiceUri   False          https://testfuncpacificappn9585.table.core.windows.net
-QueueStorage__blobServiceUri           False          https://test090890.blob.core.windows.net
-QueueStorage__credential               False          managedidentity
-QueueStorage__queueServiceUri          False          https://test090890.queue.core.windows.net
-QueueStorage__tableServiceUri          False          https://test090890.table.core.windows.net
+# AzureWebJobsStorage__accountName       False          testfuncpacificappn9585
+# AzureWebJobsStorage__blobServiceUri    False          https://testfuncpacificappn9585.blob.core.windows.net
+# AzureWebJobsStorage__credential        False          managedidentity
+# AzureWebJobsStorage__queueServiceUri   False          https://testfuncpacificappn9585.queue.core.windows.net
+# AzureWebJobsStorage__tableServiceUri   False          https://testfuncpacificappn9585.table.core.windows.net
+# QueueStorage__blobServiceUri           False          https://test090890.blob.core.windows.net
+# QueueStorage__credential               False          managedidentity
+# QueueStorage__queueServiceUri          False          https://test090890.queue.core.windows.net
+# QueueStorage__tableServiceUri          False          https://test090890.table.core.windows.net

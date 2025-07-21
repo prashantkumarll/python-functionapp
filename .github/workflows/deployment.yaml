@@ -9,6 +9,10 @@ on:
 
 # Deploy to an app on the Flex Consumption plan using OIDC authentication
 jobs:
+    check_folders:
+      runs-on: ubuntu-latest
+      
+    
     build:
       runs-on: ubuntu-latest
       permissions:
